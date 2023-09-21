@@ -53,7 +53,7 @@ Esta operación realiza una orden, verifica y aplica loas descuentos y promocion
 ## Créditos
 
 - Autor Principal: Juan David Sánchez Loaiza
-- 
+  
 ## Contacto
 
 Puedes contactarme en juanda2984@gmail.com
