@@ -22,7 +22,7 @@ public class InAtlasUnitTest {
 
 	private static final String FRAPUCCINO = "Frapuccino";
 
-	// Insertar un prodcuto
+	// Insertar un producto
 	@Test
 	public void testSaleOrderEntity() throws ParseException, JsonProcessingException {
 		Product product = new Product();
