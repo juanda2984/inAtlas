@@ -34,6 +34,7 @@ Con esta se conseguiria el menú como tal del Coffee Shop
 *En un cliente como postman se puede realizar la ejecucion mediante la siguiente peticion en operación post: 
 http://localhost:8080/saleOrder/
 Teniendo en cuenta que se debe enviar un body en formato json, como por ejemplo:
+```json
 [
     {
         "product": {           
@@ -41,6 +42,7 @@ Teniendo en cuenta que se debe enviar un body en formato json, como por ejemplo:
         }
     }
 ]
+```
 Esta operación realiza una orden, verifica y aplica loas descuentos y promociones que den lugar y genera el recibo de pago de manera detallada.
 
 ## Contribución
