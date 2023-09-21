@@ -22,8 +22,9 @@ En desarrollo
 
 ## Uso
 
-En eclipse o STS, se debe ejecutar mediante la opcion Run As -> Java Application y seleccionar el fichero InAtlasApplication.java como punto de entrada.
-Tambien se puede instalar como una libreria mvn y observar la ejecucion de las pruebas de integración y unitarias mediante el mismo IDE, Run As -> Maven Install
+*En eclipse o STS, se debe ejecutar mediante la opcion Run As -> Java Application y seleccionar el fichero InAtlasApplication.java como punto de entrada.
+
+*Tambien se puede instalar como una libreria mvn y observar la ejecucion de las pruebas de integración y unitarias mediante el mismo IDE, Run As -> Maven Install
 
 ## Ejemplos
 
