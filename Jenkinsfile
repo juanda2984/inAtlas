@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     
     
     
@@ -23,15 +28,13 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-	        	withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'Juanda9770794', usernameVariable: 'juanda2984')]) {
-	            	script {
-	            		docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-		                    dockerImage.push('latest') // Sube la imagen Docker a Docker Hub
-		                    //sh 'docker push inatlas_imagen:tag'
-		                    //docker.image('inatlas_imagen:tag').push("Push de la imagen a Docker Hub")
-		                }
-	               	}
-	            }
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'Juanda9770794', usernameVariable: 'juanda2984')]) {
+                    script {
+                        docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                            docker.image('inatlas_imagen:tag').push('latest') // Sube la imagen Docker a Docker Hub
+                        }
+                    }
+                }
             }
         }
     }
