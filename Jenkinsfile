@@ -16,17 +16,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('inatlas_imagen:tag', '.')
+                    app = docker.build('inatlas_imagen:tag', '.')
                 }
             }
         }
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentialss', passwordVariable: 'Juanda9770794', usernameVariable: 'juanda2984')]) {
-                        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentialss') {
-                            docker.image('inatlas_imagen:tag').push('latest') // Sube la imagen Docker a Docker Hub
-                        }
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        app.push('latest') // Sube la imagen Docker a Docker Hub
                     }
                 }
             }
