@@ -22,8 +22,8 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'Juanda9770794', usernameVariable: 'juanda2984')]) {
-                    script {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'Juanda9770794', usernameVariable: 'juanda2984')]) {
                         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
                             docker.image('inatlas_imagen:tag').push('latest') // Sube la imagen Docker a Docker Hub
                         }
