@@ -32,9 +32,23 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
+                   def existingContainer = sh(script: 'docker ps -aqf "name=inatlas_container"', returnStdout: true).trim()
+		            if (existingContainer) {
+		                sh "docker stop ${existingContainer}"
+		                sh "docker rm ${existingContainer}"
+		            }
                     docker.image('juanda2984/inatlas_imagen:tag').run('-p 8081:8080 --name inatlas_container')
                 }
             }
         }
+        
+        stage('Check Container Status') {
+		    steps {
+		        script {
+		            def containerStatus = sh(script: 'docker ps --filter "name=inatlas_container" --format "{{.Status}}"', returnStdout: true).trim()
+		            echo "Container Status: ${containerStatus}"
+		        }
+		    }
+		}
     }
 }
