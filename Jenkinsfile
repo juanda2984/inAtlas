@@ -36,14 +36,5 @@ pipeline {
                 }
             }
         }
-        
-        stage('Check Container Status') {
-		    steps {
-		        script {
-		            def containerStatus = sh(script: 'docker ps --filter "name=inatlas_container" --format "{{.Status}}"', returnStdout: true).trim()
-		            echo "Container Status: ${containerStatus}"
-		        }
-		    }
-		}
     }
 }
