@@ -28,5 +28,13 @@ pipeline {
                 }
             }
         }
+        
+        stage('Run Container') {
+            steps {
+                script {
+                    docker.image('juanda2984/inatlas_imagen:tag').run('-p 8081:8080 --name inatlas_container')
+                }
+            }
+        }
     }
 }
