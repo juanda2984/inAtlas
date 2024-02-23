@@ -15,7 +15,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    app = docker.build('inatlas_imagen:tag', '.')
+                    app = docker.build('juanda2984/inatlas_imagen:tag', '.')
                 }
             }
         }
